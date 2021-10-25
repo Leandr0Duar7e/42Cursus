@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/22 12:38:24 by leolivei          #+#    #+#             */
-/*   Updated: 2021/10/25 16:24:38 by leolivei         ###   ########.fr       */
+/*   Created: 2021/10/25 14:06:40 by leolivei          #+#    #+#             */
+/*   Updated: 2021/10/25 16:51:31 by leolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <stdio.h>
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t	i;
-	size_t	j;
+	unsigned char	lt;
+	unsigned int	i;	
+	char			*wrd;
 
+	wrd = (char *)s;
 	i = 0;
-	j = 0;
-	while (dst[i] != '\0' && i < dstsize)
-		i++;
-	while ((i + j + 1 < dstsize) && src[j] != '\0')
+	lt = (unsigned char)c;
+	while (wrd[0] != lt && i < n && wrd[0] != '\0')
 	{
-		dst[i + j] = src[j];
-		j++;
+		wrd++;
+		i++;
 	}
-	if (i < dstsize)
-		dst[i + j] = '\0';
-	while (src[j] != '\0')
-		j++;
-	return (i + j);
+	if (wrd[0] != lt || i >= n)
+		return (0);
+	return ((char *)wrd);
 }

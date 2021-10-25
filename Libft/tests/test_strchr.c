@@ -6,7 +6,7 @@
 /*   By: leolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 17:13:33 by leolivei          #+#    #+#             */
-/*   Updated: 2021/10/22 14:56:36 by leolivei         ###   ########.fr       */
+/*   Updated: 2021/10/25 12:49:24 by leolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -41,4 +41,12 @@ int	main(void)
     printf( "Source:\t\t%s\n", str1 );
     printf( "Char:\t\\0\n");
     printf("Return:\t\t%s\n", strchr( str1, '\0'));
+	printf( "Function:\tft_strchr\n" );
+    printf( "Source:\t\t%s\n", str1 );
+    printf( "Char:\t3\n");
+    printf("Return:\t\t%s\n", ft_strchr( str1, '3'));
+	printf( "Function:\tstrchr\n" );
+    printf( "Source:\t\t%s\n", str1 );
+    printf( "Char:\t3\n");
+    printf("Return:\t\t%s\n", strchr( str1, '3'));
 }

@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/22 12:38:24 by leolivei          #+#    #+#             */
-/*   Updated: 2021/10/25 16:24:38 by leolivei         ###   ########.fr       */
+/*   Created: 2021/10/25 13:38:53 by leolivei          #+#    #+#             */
+/*   Updated: 2021/10/25 14:03:35 by leolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+#include <stdlib.h>
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
-	size_t	j;
+	unsigned int	i;
+	int				res;
 
 	i = 0;
-	j = 0;
-	while (dst[i] != '\0' && i < dstsize)
-		i++;
-	while ((i + j + 1 < dstsize) && src[j] != '\0')
+	res = 0;
+	while (s1[i] != '\0' && i < n)
 	{
-		dst[i + j] = src[j];
-		j++;
+		if (s1[i] != s2[i])
+		{
+			if ((s1[i] - s2[i]) < 0)
+				return (-1);
+			return (1);
+		}
+		i++;
 	}
-	if (i < dstsize)
-		dst[i + j] = '\0';
-	while (src[j] != '\0')
-		j++;
-	return (i + j);
+	if (i < n && s1[i] != s2[i])
+	{
+		if ((s1[i] - s2[i]) > 0)
+			return (1);
+		return (-1);
+	}
+	return (res);
 }

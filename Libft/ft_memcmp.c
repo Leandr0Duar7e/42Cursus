@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/22 12:38:24 by leolivei          #+#    #+#             */
-/*   Updated: 2021/10/25 16:24:38 by leolivei         ###   ########.fr       */
+/*   Created: 2021/10/25 16:52:27 by leolivei          #+#    #+#             */
+/*   Updated: 2021/10/25 17:35:44 by leolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+#include <stdlib.h>
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
-	size_t	j;
+	const char			*str1;
+	const char			*str2;
+	unsigned int	i;
 
 	i = 0;
-	j = 0;
-	while (dst[i] != '\0' && i < dstsize)
-		i++;
-	while ((i + j + 1 < dstsize) && src[j] != '\0')
+	str1 = (const char *)s1;
+	str2 = (const char *)s2;
+	while (i < n && str1[0] == str2[0])
 	{
-		dst[i + j] = src[j];
-		j++;
+		str1++;
+		str2++;
+		i++;
 	}
-	if (i < dstsize)
-		dst[i + j] = '\0';
-	while (src[j] != '\0')
-		j++;
-	return (i + j);
+	if (str1[0] > str2[0])
+		return (1);
+	else if (str1[0] < str2[0])
+		return (-1);
+	return (0);
 }

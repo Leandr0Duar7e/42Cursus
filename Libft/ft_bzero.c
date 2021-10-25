@@ -6,7 +6,7 @@
 /*   By: leolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 18:00:04 by leolivei          #+#    #+#             */
-/*   Updated: 2021/10/21 17:12:24 by leolivei         ###   ########.fr       */
+/*   Updated: 2021/10/25 16:22:29 by leolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -14,5 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	ft_memset( s, '\0', n);
+	ft_memset(s, '\0', n);
 }

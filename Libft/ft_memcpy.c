@@ -6,11 +6,11 @@
 /*   By: leolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 18:29:49 by leolivei          #+#    #+#             */
-/*   Updated: 2021/10/21 18:17:55 by leolivei         ###   ########.fr       */
+/*   Updated: 2021/10/25 16:23:42 by leolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
-                                                                  
+
 void	*ft_memcpy( void *dst, const void *src, size_t n)
 {
 	char	*ptrs;
