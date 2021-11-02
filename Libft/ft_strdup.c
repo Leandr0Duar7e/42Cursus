@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 14:06:40 by leolivei          #+#    #+#             */
-/*   Updated: 2021/11/02 12:07:19 by leolivei         ###   ########.fr       */
+/*   Created: 2021/11/02 15:16:27 by leolivei          #+#    #+#             */
+/*   Updated: 2021/11/02 15:40:45 by leolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdlib.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strdup(const char *s1)
 {
-	unsigned char	lt;
-	unsigned int	i;	
-	const char		*wrd;
+	char	*ptr;
+	int		i;
 
-	wrd = (const char *)s;
 	i = 0;
-	lt = (unsigned char)c;
-	while (wrd[0] != lt && i < n && wrd[0] != '\0')
+	while (s1[i] != '\0')
+		i++;
+	ptr = (char *)malloc((i + 1) * sizeof(char));
+	if (ptr == NULL)
+		return (NULL);
+	i = 0;
+	while (s1[i] != '\0')
 	{
-		wrd++;
+		ptr[i] = s1[i];
 		i++;
 	}
-	if (wrd[0] != lt || i >= n)
-		return (0);
-	return ((void *)wrd);
+	ptr[i] = '\0';
+	return (ptr);
 }
