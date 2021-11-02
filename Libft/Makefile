@@ -16,7 +16,7 @@ OBJS = ${SRCS:.c=.o}
 
 NAME = libft.a
 
-HEAD = *.h
+HEAD = libft.h
 
 GCC = gcc
 
@@ -29,7 +29,7 @@ AR = ar rc
 RANLIB = ranlib
 
 .c.o:
-		${CC} ${CFLAGS} -c $< -o ${<:.c=.o} -I ${HEAD}
+		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}: ${OBJS}
 	${AR} ${NAME} ${OBJS}
