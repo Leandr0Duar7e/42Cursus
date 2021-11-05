@@ -6,7 +6,7 @@
 /*   By: leolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 12:43:08 by leolivei          #+#    #+#             */
-/*   Updated: 2021/11/02 14:39:21 by leolivei         ###   ########.fr       */
+/*   Updated: 2021/11/05 15:45:21 by leolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_atoi(const char *str)
 	while (str[0] != '\0' && str[0] >= '0' && str[0] <= '9')
 	{
 		res = res * 10;
-		res += str[0]  - 48;
+		res += str[0] - 48;
 		str++;
 	}
 	return (res * sign);

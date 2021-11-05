@@ -1,30 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_memcmp.c                                      :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 17:21:41 by leolivei          #+#    #+#             */
-/*   Updated: 2021/11/05 13:26:21 by leolivei         ###   ########.fr       */
+/*   Created: 2021/11/05 16:47:45 by leolivei          #+#    #+#             */
+/*   Updated: 2021/11/05 17:09:01 by leolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
-int	main(void)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	char	**s;
-	int		i;
-
-    printf( "Function:\tft_split\n" );
-    printf( "s:\tPrimeiro Exemplo\n");
-    printf( "c:\ti\n");
-	s = ft_split( "Primeiro Exemplo", 'i');
-	for (i = 0; s[i] != (void *)0; i++)
-	{
-		printf("\n i: %s", s[i]);
-	}
 }
