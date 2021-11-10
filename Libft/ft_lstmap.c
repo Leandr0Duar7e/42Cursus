@@ -1,19 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 12:03:15 by leolivei          #+#    #+#             */
-/*   Updated: 2021/11/09 12:03:18 by leolivei         ###   ########.fr       */
+/*   Created: 2021/11/10 13:44:31 by leolivei          #+#    #+#             */
+/*   Updated: 2021/11/10 14:07:37 by leolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putchar_fd(char c, int fd)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	write(fd, &c, 1);
+	t_list	*new_lst;
+	t_list	*new_elem;
+
+	if (!f || !del)
+		return (NULL);
+	new_lst = NULL;
+	while (lst)
+	{
+		new_elem = ft_lstnew(f(lst->content));
+		if (!new_elem)
+		{
+			ft_lstclear(&new_lst, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_lst, new_elem);
+		lst = lst->next;
+	}
+	return (new_lst);
 }

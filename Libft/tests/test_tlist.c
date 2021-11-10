@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   test_tlist.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 12:03:15 by leolivei          #+#    #+#             */
-/*   Updated: 2021/11/09 12:03:18 by leolivei         ###   ########.fr       */
+/*   Created: 2021/11/10 14:12:08 by leolivei          #+#    #+#             */
+/*   Updated: 2021/11/10 14:20:46 by leolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar_fd(char c, int fd)
+int	main(void)
 {
-	write(fd, &c, 1);
+	t_list	*new;
+
+	new = ft_lstnew("Primeiro Exemplo");
+	ft_lstadd_front(&new, ft_lstnew("Segundo Exemplo"));
+	ft_lstadd_back(&new, ft_lstnew("Terceiro Exemplo"));
+	printf("%d\n", ft_lstsize(new));
+	printf("%s\n", ft_lstlast(new)->content);
 }
