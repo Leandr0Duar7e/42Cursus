@@ -6,46 +6,61 @@
 /*   By: leolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 13:46:41 by leolivei          #+#    #+#             */
-/*   Updated: 2021/11/05 16:13:35 by leolivei         ###   ########.fr       */
+/*   Updated: 2021/11/12 12:55:19 by leolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*makes(int n, int zr, char *res, int i)
+static char	*ft_array(char *res, unsigned int number, long int len)
 {
-	while (n > 9)
+	while (number > 0)
 	{
-		res[i++] = '0' + n / (zr / 10);
-		n = n % (zr / 10);
-		zr = zr / 10;
+		res[len--] = '0' + (number % 10);
+		number = number / 10;
 	}
-	while (zr != 10)
-	{
-		res[i++] = '0';
-		zr = zr / 10;
-	}
-	res[i] = '0' + n;
 	return (res);
+}
+
+static long int	ft_len(int n)
+{
+	long int	len;
+
+	len = 0;
+	if (n <= 0)
+		len = 1;
+	while (n != 0)
+	{
+		len++;
+		n = n / 10;
+	}
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*res;
-	int		zr;
-	int		i;
+	char			*res;
+	long int		len;
+	unsigned int	number;
+	int				sign;
 
-	zr = 10;
-	i = 1;
-	while ((n / zr) != 0)
+	sign = 1;
+	len = ft_len(n);
+	res = (char *)malloc(sizeof(char) * (len + 1));
+	if (!(res))
+		return (NULL);
+	res[len] = '\0';
+	len--;
+	if (n == 0)
+		res[0] = '0';
+	if (n < 0)
 	{
-		i++;
-		zr = zr * 10;
+		sign *= -1;
+		number = n * -1;
+		res[0] = '-';
 	}
-	res = malloc(sizeof(char) * i);
-	if (res == NULL)
-		return (0);
-	i = 0;
-	makes(n, zr, res, i);
+	else
+		number = n;
+	res = ft_array(res, number, len);
 	return (res);
 }
