@@ -6,24 +6,22 @@
 /*   By: leolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/20 18:29:49 by leolivei          #+#    #+#             */
-/*   Updated: 2021/10/25 16:23:42 by leolivei         ###   ########.fr       */
+/*   Updated: 2021/11/12 14:04:34 by leolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
 
 void	*ft_memcpy( void *dst, const void *src, size_t n)
 {
-	char	*ptrs;
-	char	*ptrd;
+	size_t	i;
 
-	ptrs = (char *)src;
-	ptrd = (char *)dst;
-	while (n > 0)
+	if (!src && !dst)
+		return (0);
+	i = 0;
+	while (i < n)
 	{
-		*ptrd = *ptrs;
-		ptrd++;
-		ptrs++;
-		n--;
+		*(char *)(dst + i) = *(char *)(src + i);
+		i++;
 	}
-	return ((void *)dst);
+	return (dst);
 }
