@@ -6,7 +6,7 @@
 /*   By: leolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 14:39:59 by leolivei          #+#    #+#             */
-/*   Updated: 2021/11/12 14:26:44 by leolivei         ###   ########.fr       */
+/*   Updated: 2021/11/15 16:29:55 by leolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	*ft_calloc(size_t count, size_t size)
 	ptr = (void *)malloc(count * size);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, count);
+	ft_bzero(ptr, count * size);
 	return (ptr);
 }

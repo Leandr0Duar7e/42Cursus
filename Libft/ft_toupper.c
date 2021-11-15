@@ -6,16 +6,15 @@
 /*   By: leolivei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 13:00:09 by leolivei          #+#    #+#             */
-/*   Updated: 2021/10/22 13:55:37 by leolivei         ###   ########.fr       */
+/*   Updated: 2021/11/15 15:38:03 by leolivei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_toupper(int c)
 {
-	unsigned char	lt;
-
-	lt = c;
-	if (c >= 97 && c <= 122)
-		lt = lt - 32;
-	return (lt);
+	if (c >= 'a' && c <= 'z')
+		c = c - 32;
+	return (c);
 }
