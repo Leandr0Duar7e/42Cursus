@@ -3,27 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leolivei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vserrao- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/25 12:32:51 by leolivei          #+#    #+#             */
-/*   Updated: 2021/10/25 12:47:10 by leolivei         ###   ########.fr       */
+/*   Created: 2021/10/20 09:47:58 by vserrao-          #+#    #+#             */
+/*   Updated: 2021/10/20 10:30:35 by vserrao-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strrchr(const char *s, int c)
 {
-	char	lt;
-	char	first;
-	int		i;
+	int	i;
 
 	i = 0;
-	first = s[i];
+	if (!s)
+		return (NULL);
 	while (s[i] != '\0')
-		s++;
-	lt = (char )c;
-	while (s[i] != lt && s[i] != first)
-		s--;
-	if (s[i] != lt)
-		return (0);
-	return ((char *)s);
+		i++;
+	while (i >= 0)
+	{
+		if (s[i] == c)
+			return ((char *)(s + i));
+		i--;
+	}
+	return (NULL);
 }
+/*
+int	main(void)
+{
+	const char	*str = "Find the d";
+	int			c = 'd';
+
+	printf("%s\n", ft_strrchr(str, c));
+}*/
